@@ -10,19 +10,21 @@
 #include <stdlib.h>
 
 void main(){
-	int sum = 0;
-  int term = 1;
-  int nextTerm = 2;
+  int sum = 0;
+  int anotherTerm = 1;
+  int term = 2;
+  int nexTerm = 2+1;
   
-	while(term <= 4000000){
+   while(nexTerm <= 4000000){
 		
-    if(term % 2 == 0){
-		 sum += term;
+   	if(nexTerm % 2 == 0){
+		 sum =+ nexTerm;
     }
     
-    term = nextTerm;
-    nextTerm += term;
-	}
+    anotherTerm = term;
+   	term = nexTerm;
+   	nexTerm = term + anotherTerm;
+   }
 	
   printf("%d\n", sum);
 }
