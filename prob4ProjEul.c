@@ -10,43 +10,41 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void main(){ // int main(int argc, char *argv[]){
-	int digits = 0;
-	int n;
-	int dummy;
+//Its still wrong - yielding 580085 instead of 906609
+
+int isPalindrome(int n){
+	int digits[6];
+	int k = 0;
+	int dummy = n;
 	
-	/*for(int a = 999; a > 0; a--) {
-		
-		for(int b = a-1; b > 0; b--) {
-			
-			n = a*b;
-			dummy = n;
+	for(int i = 5; i >= 0; i--){
+		digits[i] = dummy % 10;
+		dummy = dummy / 10;
+	}
 
-		*/
-		dummy = 1234;//
-		n = 1234;//
-		//cool v
-			while(dummy != 0){
-				digits++;
-				dummy = dummy/10;	
-			}
-		//---^
-		
-			//cool v
-			int *number = malloc(digits*sizeof(int));
-			//---^
-			
-			for(int i = 0; n > 0; i++){
-				dummy = n%10;
-				n = n/10;
-				number[i] = dummy;
-			}
-
-			for(; digits > 0; digits--){//
-				printf("%d\n", number[digits]);//
-			}//
+	for(int i = 5; i >= 3; i--){
+		if(digits[i] != digits[k]){
+			return 0;
 		}
-		//free(number);
-	//}
-//}
+		k++;
+	}
+	printf("%d\n", n);
+	return 1;
+}
 
+void main(){ // int main(int argc, char *argv[]){
+	int a = 999;
+	int b = 998;
+	int n; 
+	
+	do {
+		n = a * b;
+		b--;
+		
+		if(b < 100){
+			a = a-1;
+			b = a-1;
+		}
+		
+	}while(isPalindrome(n) == 0);
+}
